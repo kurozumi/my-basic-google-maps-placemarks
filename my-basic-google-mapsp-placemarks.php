@@ -42,6 +42,7 @@ add_action('plugins_loaded', function() {
 
             ob_start();
             do_action( BasicGoogleMapsPlacemarks::PREFIX . 'meta-address-before' );
+            // viewの読み込み先を変更
             require_once( dirname( __FILE__ ) . '/views/shortcode-bgmp-map.php' );
             do_action( BasicGoogleMapsPlacemarks::PREFIX . 'shortcode-bgmp-map-after' );
             $output = ob_get_clean();
