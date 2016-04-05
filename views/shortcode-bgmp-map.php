@@ -19,7 +19,7 @@
     })(jQuery);
 </script>
 
-<p><button id="getLocation">現在地へ移動</button></p>
+<p><button id="getLocation">現在地を表示</button></p>
 <div id="<?php echo self::PREFIX; ?>map-canvas">
     <p><?php _e( 'Loading map...', 'basic-google-maps-placemarks' ); ?></p>
     <p><img src="<?php echo plugins_url( 'images/loading.gif', dirname( __FILE__ ) ); ?>" alt="<?php _e( 'Loading', 'basic-google-maps-placemarks' ); ?>" /></p>
