@@ -18,6 +18,13 @@ add_action('plugins_loaded', function() {
 
     class MY_BasicGoogleMapsPlacemarks extends BasicGoogleMapsPlacemarks
     {
+    	public function register()
+    	{
+			add_action("admin_menu", function(){
+				remove_submenu_page("options-general.php", self::PREFIX . 'settings');				
+			});
+    	}
+    	
         public function mapShortcode( $attributes )
         {
             if( !wp_script_is( 'googleMapsAPI', 'queue' ) || !wp_script_is( 'bgmp', 'queue' ) || !wp_style_is( self::PREFIX .'style', 'queue' ) )
@@ -51,4 +58,5 @@ add_action('plugins_loaded', function() {
         }
     }
     $my_bgmp = new MY_BasicGoogleMapsPlacemarks;
+    $my_bgmp->register();
 }, 9999);
